@@ -1,0 +1,46 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - path: iris.csv
+      hash: md5
+      md5: 5ec363a6ac6a3bc875b2aaaa0f764869
+      size: 3419
+    - path: params.yaml
+      hash: md5
+      md5: e7d6b462bb8e533d695b0ca8f4eca314
+      size: 181
+    - path: train.py
+      hash: md5
+      md5: 2224ac71b2263ccc1a888eef2bc27b52
+      size: 985
+    outs:
+    - path: experiments/experiment_catboost/model.cbm
+      hash: md5
+      md5: 0e63058e1c7217cc303d956922b3394b
+      size: 206584
+  metrics:
+    cmd: python metrics.py
+    deps:
+    - path: experiments/experiment_catboost/model.cbm
+      hash: md5
+      md5: 0e63058e1c7217cc303d956922b3394b
+      size: 206584
+    - path: iris.csv
+      hash: md5
+      md5: 5ec363a6ac6a3bc875b2aaaa0f764869
+      size: 3419
+    - path: metrics.py
+      hash: md5
+      md5: 0392ca0e82f4c38881b4db08e9a5fca4
+      size: 2313
+    outs:
+    - path: experiments/experiment_catboost/confusion_matrix.png
+      hash: md5
+      md5: 27dcc7882c1427aad443dd0a89ec40ea
+      size: 17701
+    - path: experiments/experiment_catboost/metrics.csv
+      hash: md5
+      md5: 0414ebd30ec1e59b7ff93d8cd1a3e3e3
+      size: 596

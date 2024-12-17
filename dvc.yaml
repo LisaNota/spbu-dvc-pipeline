@@ -1,0 +1,19 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - iris.csv
+      - params.yaml
+    outs:
+      - experiments/experiment_${experiment.name}/model.cbm
+
+  metrics:
+    cmd: python metrics.py
+    deps:
+      - metrics.py
+      - experiments/experiment_${experiment.name}/model.cbm
+      - iris.csv
+    outs:
+      - experiments/experiment_${experiment.name}/confusion_matrix.png
+      - experiments/experiment_${experiment.name}/metrics.csv
