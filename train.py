@@ -1,5 +1,6 @@
 import os
-from catboost import CatBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
+import joblib
 import pandas as pd
 import yaml
 from sklearn.model_selection import train_test_split
@@ -19,12 +20,11 @@ X_train, X_test, y_train, y_test = train_test_split(data.drop('target', axis=1),
                                                     random_state=42)
 
 
-model = CatBoostClassifier(
-    iterations=params['train']['iterations'],
-    learning_rate=params['train']['learning_rate'],
-    depth=params['train']['depth'],
-    random_seed=42,
-    loss_function='MultiClass'
+model = RandomForestClassifier(
+    n_estimators=params['train']['n_estimators'],
+    max_depth=params['train']['max_depth'],
+    random_state=42
 )
+
 model.fit(X_train, y_train)
-model.save_model(f"{output_dir}/model.cbm")
+joblib.dump(model, f"{output_dir}/model.pkl")

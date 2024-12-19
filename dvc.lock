@@ -9,38 +9,38 @@ stages:
       size: 3419
     - path: params.yaml
       hash: md5
-      md5: e7d6b462bb8e533d695b0ca8f4eca314
-      size: 181
+      md5: c4d1986df10892bce2f17543529373c6
+      size: 122
     - path: train.py
       hash: md5
-      md5: 2224ac71b2263ccc1a888eef2bc27b52
-      size: 985
+      md5: 5eb9d28878182f56c5e789c28c7023b2
+      size: 947
     outs:
-    - path: experiments/experiment_catboost/model.cbm
+    - path: experiments/experiment_random_forest/model.pkl
       hash: md5
-      md5: 0e63058e1c7217cc303d956922b3394b
-      size: 206584
+      md5: c1fcf466b74a9e21d2c34ab8d2ca40fe
+      size: 94545
   metrics:
     cmd: python metrics.py
     deps:
-    - path: experiments/experiment_catboost/model.cbm
+    - path: experiments/experiment_random_forest/model.pkl
       hash: md5
-      md5: 0e63058e1c7217cc303d956922b3394b
-      size: 206584
+      md5: c1fcf466b74a9e21d2c34ab8d2ca40fe
+      size: 94545
     - path: iris.csv
       hash: md5
       md5: 5ec363a6ac6a3bc875b2aaaa0f764869
       size: 3419
     - path: metrics.py
       hash: md5
-      md5: 0392ca0e82f4c38881b4db08e9a5fca4
-      size: 2313
+      md5: c05d1900d2ef3fec12531059b521163e
+      size: 2134
     outs:
-    - path: experiments/experiment_catboost/confusion_matrix.png
+    - path: experiments/experiment_random_forest/confusion_matrix.png
       hash: md5
-      md5: 27dcc7882c1427aad443dd0a89ec40ea
-      size: 17701
-    - path: experiments/experiment_catboost/metrics.csv
+      md5: a4413b7db80507bc47cfb1395d52db0d
+      size: 17714
+    - path: experiments/experiment_random_forest/metrics.csv
       hash: md5
-      md5: 0414ebd30ec1e59b7ff93d8cd1a3e3e3
-      size: 596
+      md5: 4370554a30a0bce7a4e9c7d23e2bdcbf
+      size: 589

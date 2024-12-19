@@ -6,13 +6,13 @@ stages:
       - iris.csv
       - params.yaml
     outs:
-      - experiments/experiment_${experiment.name}/model.cbm
+      - experiments/experiment_${experiment.name}/model.pkl
 
   metrics:
     cmd: python metrics.py
     deps:
       - metrics.py
-      - experiments/experiment_${experiment.name}/model.cbm
+      - experiments/experiment_${experiment.name}/model.pkl
       - iris.csv
     outs:
       - experiments/experiment_${experiment.name}/confusion_matrix.png
