@@ -1,8 +1,9 @@
 train:
-  n_estimators: 100
-  max_depth: 6
-  random_state: 42
+  batch_size: 32
+  learning_rate: 0.01
+  num_epochs: 10
+  random_seed: 42
   test_size: 0.7
 
-experiment: 
-  name: "random_forest"
+experiment:
+  name: "mxnet_mlp"
